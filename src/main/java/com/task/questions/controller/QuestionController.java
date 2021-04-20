@@ -2,6 +2,7 @@ package com.task.questions.controller;
 
 
 import com.task.questions.entity.dto.QuestionDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import com.task.questions.service.QuestionServiceImpl;
@@ -15,7 +16,8 @@ import java.util.UUID;
 public class QuestionController {
 
     private final QuestionServiceImpl questionServiceImp;
-//    @Autowired
+
+    @Autowired
     public QuestionController(QuestionServiceImpl questionServiceImp) {
         this.questionServiceImp = questionServiceImp;
     }
@@ -36,7 +38,7 @@ public class QuestionController {
         return questionServiceImp.createQuestion(questionDTO);
     }
 
-    @PutMapping("edit/{id}")
+    @PutMapping("/edit")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public QuestionDTO updatePost(@RequestBody @Valid QuestionDTO questionDTO) {
         return questionServiceImp.updateQuestion(questionDTO);

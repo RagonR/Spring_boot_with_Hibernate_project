@@ -1,6 +1,5 @@
 package com.task.questions.entity.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.task.questions.entity.Answer;
 
 import java.util.Set;

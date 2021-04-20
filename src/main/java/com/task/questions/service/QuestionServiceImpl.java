@@ -45,7 +45,6 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public QuestionDTO createQuestion(QuestionDTO questionDTO) {
         Question question = dtoMapper.convertQuestionDtoToEntity(questionDTO);
-//        question.setAnswers();
         Question savedQuestion = questionRepository.save(question);
         return entityMapper.convertQuestionEntityToDTO(savedQuestion);
     }
@@ -56,9 +55,7 @@ public class QuestionServiceImpl implements QuestionService {
         if (questionRepository.findById(id).isEmpty()) {
             throw new EntityNotFoundException(id.toString());
         }
-        Question question = questionRepository.getOne(id);
-        question.setQuestion_text(questionDTO.getQuestion_text());
-        question = dtoMapper.convertQuestionDtoToEntity(questionDTO);
+        Question question = dtoMapper.convertQuestionDtoToEntity(questionDTO);
         Question updatedQuestion = questionRepository.save(question);
         return entityMapper.convertQuestionEntityToDTO(updatedQuestion);
     }

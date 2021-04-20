@@ -34,6 +34,7 @@ public class Answer {
     public Answer() {
     }
 
+    @JsonIgnore
     public UUID getAnswer_id() {
         return answer_id;
     }
